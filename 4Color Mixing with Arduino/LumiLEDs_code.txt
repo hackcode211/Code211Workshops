@@ -1,0 +1,43 @@
+1 const int greenLEDPin = 9;
+2 const int redLEDPin = 10;
+3 const int blueLEDPin = 11;
+4 const int redSensorPin = A0;
+5 const int greenSensorPin = A1;
+6 const int blueSensorPin = A2;
+7 int redvalue = 0;
+8 int greenvalue = 0;
+9 int bluevalue = 0;
+10 int redSensorValue = 0;
+11 int greenSensorValue = 0;
+12 int blueSensorValue = 0;
+13 void setup( ) {
+14     Serial.begin(9600);
+15     pinMode(greenLEDPin, OUTPUT);
+16     pinMode(redLEDPin, OUTPUT);
+17     pinMode(blueLEDPin, OUTPUT);
+18 }
+19 void loop( ) {
+20     redSensorValue = analogRead(redSensorPin);
+21     delay(5);
+22     greenSensorValue = analogRead(greenSensorPin);
+23     delay(5);
+24     blueSensorValue = analogRead(blueSensorPin);
+25     Serial.print(“Raw Sensor Values \t red: ”);
+26     Serial.print(redSensorValue);
+27     Serial.print(“\t green: ”);
+28     Serial.print(greenSensorValue);
+29     Serial.print(“\t blue: ”);
+30     Serial.print(blueSensorValue);
+31     redvalue = redsensorValue/4;
+32     greenvalue = greensensorValue/4;
+33     bluevalue = bluesensorValue/4;
+34     Serial.print(“Mapped Sensor Values \t red: ”);
+35     Serial.print(redValue);
+36     Serial.print(“\t green: ”);
+37     Serial.print(greenValue);
+38     Serial.print(“\t blue: ”);
+39     Serial.print(blueValue);
+40     analogwrite(redLEDPin, redValue);
+41     analogwrite(greenLEDPin, greenValue);
+42     analogwrite(blueLEDPin, blueValue);
+43 }
